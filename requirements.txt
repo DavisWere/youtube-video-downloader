@@ -1,0 +1,9 @@
+altgraph==0.17.4
+packaging==25.0
+pyinstaller==6.14.1
+pyinstaller-hooks-contrib==2025.5
+pytube @ git+https://github.com/pytube/pytube@a32fff39058a6f7e5e59ecd06a7467b71197ce35
+pytube3==9.6.4
+setuptools==80.9.0
+typing_extensions==4.14.0
+yt-dlp==2025.6.30
