@@ -52,7 +52,19 @@ python youtube_downloader.py
 
 ### 🖥️ Running the Standalone App
 
+After building with PyInstaller:
+
+```bash
+pyinstaller youtube_downloader.spec
+```
+
+You’ll get a folder:
+
+```bash
 dist/youtube_downloader/
+```
+
+Inside that folder:
 
 Windows: Double-click youtube_downloader.exe
 
