@@ -32,14 +32,19 @@ def select_directory():
         directory_label.config(text=f"Download Location: {directory}")
 
 def download_video():
+    # Disable download button at start
+    download_button.pack_forget()
+    
     url = url_entry.get()
     if not url:
         messagebox.showerror("Error", "Please enter a YouTube URL")
+        download_button.pack(pady=10)  # Re-show button on error
         return
 
     download_dir = download_path.get()
     if not download_dir:
         messagebox.showerror("Error", "Please select a download directory")
+        download_button.pack(pady=10)  # Re-show button on error
         return
 
     ydl_opts = {
@@ -58,9 +63,15 @@ def download_video():
         messagebox.showerror("Error", f"Download failed: {str(e)}")
     finally:
         progress_bar["value"] = 0
+        download_button.pack(pady=10)  # Always re-show button when done
 
 def start_download_thread():
-    thread = threading.Thread(target=download_video, daemon=True)
+    # Create a disabled status label
+    status_label = tk.Label(main_frame, text="Downloading...", fg="blue")
+    status_label.pack(pady=10)
+    
+    # Start download in thread
+    thread = threading.Thread(target=lambda: [download_video(), status_label.pack_forget()], daemon=True)
     thread.start()
 
 # --- Main Window Setup ---
