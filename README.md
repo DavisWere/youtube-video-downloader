@@ -90,3 +90,7 @@ youtube-video-downloader/
 │   └── youtube_downloader/ (standalone app output)
 └── requirements.txt
 ```
+
+### output sample
+
+![alt text](image.png)
